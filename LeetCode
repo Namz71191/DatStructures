@@ -1,1 +1,12 @@
+#Remove Covered Intervals
+#Eg: intervals = [[1,4],[3,6],[2,8]]
+#Since [3,6] is covered by [2,8]. uncovered intervals count is 2
 
+#Code
+# Sort the intervals with x as asc and y as desc
+intervals.sort(key=lambdak:(k[0],-k[1]))
+count,right = 0,0
+for x,y in intervals:
+  count +=  y>right
+  right = max(right,y)
+return count
